@@ -6,8 +6,7 @@
   --secondary-background-color: #2f303a;
   --black-clear-color: #000000;
   --icons-base-color: #afb1b8;
-  --transition-color: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bg-color: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transform-type: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -56,6 +55,7 @@ ul {
 
 .link {
   text-decoration: none;
+  transition: var(--transform-type);
 }
 
 .link:hover,
@@ -216,10 +216,7 @@ ul {
   border-radius: 4px;
   border: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  /* _____________________Animation__________ */
-  transition-property: background-color;
-  transition-duration: 2000ms;
-  transition-timing-function: linear;
+  transition: var(--transform-type);
 }
 
 .hero-btn:hover,
@@ -367,6 +364,7 @@ ul {
   justify-content: center;
   align-items: center;
   fill: var(--icons-base-color);
+  transition: var(--transform-type);
 }
 
 .card-soc-link:hover,
@@ -397,6 +395,7 @@ ul {
   width: 170px;
   height: 92px;
   fill: currentColor;
+  transition: var(--transform-type);
 }
 
 .clients-link:hover,
@@ -451,54 +450,12 @@ ul {
 
 .social-ftr .card-soc-link {
   background-color: rgba(255, 255, 255, 0.1);
+  transition: var(--transform-type);
 }
 
 .social-ftr .card-soc-link:hover,
 .social-ftr .card-soc-link:focus {
   background-color: var(--accent-color);
-}
-
-/* ______________________________________________________*Modal-Window*________________________________ */
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-  min-width: 528px;
-  min-height: 581px;
-  background-color: var(--background-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.btn-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  background-image: url(../images/btn-close.svg);
-  background-position: center;
 }
 
 /*___________________________________________***PORTFOLIO***__________________________________________________- */
@@ -516,6 +473,7 @@ ul {
   border-radius: 4px;
   border: none;
   text-align: center;
+  transition: var(--transform-type);
 }
 
 .filter-btn:focus,
@@ -587,19 +545,16 @@ ul {
 .card-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 294px;
+  height: 100%;
   padding: 63px 24px;
   font-size: 18px;
   line-height: 1.55;
   color: var(--background-color);
   background-color: rgba(33, 150, 243, 0.9);
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transform-type);
   overflow: auto;
-  }
+}
 
 .card-link:hover,
 .card-link:focus {
@@ -610,4 +565,51 @@ ul {
 .card-link:hover .card-overlay,
 .card-link:focus .card-overlay {
   transform: translateY(0);
+}
+
+/* ______________________________________________________*Modal-Window*________________________________ */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 700ms linear, visibility 700ms linear;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+  transition: transform 300ms;
+  min-width: 528px;
+  min-height: 581px;
+  background-color: var(--background-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.backdrop.is-hidden .modal {
+  transform: scale(0.5) rotate(-320deg);
+}
+
+.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
 }
