@@ -55,7 +55,8 @@ ul {
 
 .link {
   text-decoration: none;
-  transition: var(--transform-type);
+  transition: color var(--transform-type);
+  fill: var(--transform-type);
 }
 
 .link:hover,
@@ -216,7 +217,7 @@ ul {
   border-radius: 4px;
   border: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  transition: var(--transform-type);
+  transition: background-color var(--transform-type);
 }
 
 .hero-btn:hover,
@@ -364,7 +365,7 @@ ul {
   justify-content: center;
   align-items: center;
   fill: var(--icons-base-color);
-  transition: var(--transform-type);
+  transition: background-color var(--transform-type), fill var(--transform-type);
 }
 
 .card-soc-link:hover,
@@ -395,7 +396,7 @@ ul {
   width: 170px;
   height: 92px;
   fill: currentColor;
-  transition: var(--transform-type);
+  transition: border-color var(--transform-type), fill var(--transform-type);
 }
 
 .clients-link:hover,
@@ -450,7 +451,7 @@ ul {
 
 .social-ftr .card-soc-link {
   background-color: rgba(255, 255, 255, 0.1);
-  transition: var(--transform-type);
+  transition: background-color var(--transform-type);
 }
 
 .social-ftr .card-soc-link:hover,
@@ -473,7 +474,9 @@ ul {
   border-radius: 4px;
   border: none;
   text-align: center;
-  transition: var(--transform-type);
+  transition: color var(--transform-type), 
+  background-color var(--transform-type), 
+  box-shadow var(--transform-type);
 }
 
 .filter-btn:focus,
@@ -483,7 +486,6 @@ ul {
   background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 .btn-list {
@@ -540,6 +542,8 @@ ul {
   display: block;
   position: relative;
   overflow: hidden;
+  transition: box-shadow var(--transform-type), transform var(--transform-type);
+
 }
 
 .card-overlay {
@@ -611,5 +615,5 @@ ul {
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  background-color: transparent;
+  background-image: url(../images/close.svg);
 }
